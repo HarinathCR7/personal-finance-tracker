@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 URL configuration for finance_tracker project.
 
@@ -48,3 +49,17 @@ urlpatterns = [
     path('api/docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+=======
+from django.contrib import admin
+from django.urls import path, include
+from django.views.generic import TemplateView
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('accounts/', include('accounts.urls')),
+    path('transactions/', include('transactions.urls')),
+    path('budgets/', include('budgets.urls')),
+    path('reports/', include('reports.urls')),
+] 
+>>>>>>> 98821739fc61ab0cfe2950074ca42dcf5f9c9704
